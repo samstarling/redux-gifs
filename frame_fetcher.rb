@@ -23,11 +23,11 @@ class SearchPage
   def initialize body
     @xml = Nokogiri::XML(body)
   end
-  
+
   def results
     @xml.css('item').map { |item| SearchResult.new item }
   end
-  
+
   def to_s
     results.map { |item| "#{item}\n" }
   end
@@ -37,15 +37,15 @@ class SearchResult
   def initialize node
     @node = node
   end
-  
+
   def title
     @node.css('title').text
   end
-  
+
   def reference
     @node.css('reference').text
   end
-  
+
   def to_s
     "#{title} (#{reference})"
   end
@@ -55,10 +55,7 @@ client = BBC::Redux::Client.new
 user = client.login(ENV['REDUX_USERNAME'], ENV['REDUX_PASSWORD'])
 search = SearchClient.search client, "BBC+News+at+Ten"
 search.results.each do |result|
-  FramestoreClient.get client, user, result, 5
+  FramestoreClient.get client, user, result, 10
 end
-
-
-
 
 client.logout(user)
