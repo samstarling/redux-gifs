@@ -6,12 +6,17 @@ For example:
 
 ![](https://raw.githubusercontent.com/samstarling/redux-gifs/master/examples/example.gif)
 
+### TODO
+
+* Use ImageMagick to stitch together a GIF, rather than `gif_maker.rb`.
+* Tidy up the structure of the project.
+
 ### ImageMagick
 
 This is for later reference:
 
-    convert -delay 1x24 *.jpg \
+    convert -delay 1x12 output/*.jpg \
               -ordered-dither o8x8,4 \
               -coalesce -layers OptimizeTransparency \
               -loop 0 \
-              +map animation.gif
+              +map examples/example.gif
