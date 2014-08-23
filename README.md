@@ -1,4 +1,4 @@
-# bbc-redux-gifs
+# redux-gifs
 
 This is some pretty un-loved code that hits the BBC Redux API, runs a search for programmes of a particular title, grabs a frame from *x* seconds into the programme, and stitches them all into a GIF.
 
